@@ -1,0 +1,496 @@
+@font-face {
+	font-family: 'avenir';
+	src: url('font/avenir.otf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	width:100%;
+	height:100%;
+	overflow: hidden;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+    display: inline-block;
+    float: left;
+}
+
+#loader {
+	background-color:black;
+	height:100vh;
+	width:100vw;
+	position: fixed;
+	z-index:9999;
+	transition: all .7s;
+		-webkit-box-shadow: 0px 13px 33px -6px rgba(0,0,0,1);
+-moz-box-shadow: 0px 13px 33px -6px rgba(0,0,0,1);
+box-shadow: 0px 13px 33px -6px rgba(0,0,0,1);
+}
+
+#house {
+	text-align: center;
+	margin-top: 12vh;
+	left: -200px;
+    position: relative;
+	transition: all .5s;
+	perspective: 800px;
+	perspective-origin: 50% 100px;
+}
+
+.cube {
+	transform: rotateX(-286deg) rotateZ(57deg);
+	margin: 0 auto;
+	margin-top: 38vh;
+	position: relative;
+	width:200px;
+	transform-style: preserve-3d;
+	    /*transform: rotateX(-286deg) rotateZ(57deg);*/
+	    transition: all .8s;
+
+}
+.slider {
+	width: 100vw;
+	height:100vh;
+	position: relative;
+    z-index: -1;
+}
+
+.logo-title {
+    position: absolute;
+    margin-top: -64px;
+    text-align: center;
+    width: 100vw;
+    padding-left: 291px;
+    font-size: 35px;
+    font-family: 'avenir';
+    color: transparent;
+    transition: all 3s;
+}
+
+.controls {
+	position: fixed;
+    z-index: 0;
+	left: 505px;
+    top: 50vh;
+    width: 100%;
+}
+
+.controls div {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50px;
+	opacity: 0.5;
+}
+
+.controls div:hover {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50px;
+	transition: all .1s;
+	cursor: pointer;
+	transform: scale(1.05);
+	opacity: 1;
+}
+
+#next-slide {
+	float: right;
+    margin-right: 505px;
+}
+
+#prev-slide img {
+	width: 80%;
+    transform: rotate(90deg) translateY(-3px) translateX(5px);
+}
+
+#next-slide img {
+	width: 80%;
+	transform:rotate(-90deg) translateY(11px) translateX(-5px);
+}
+
+
+#top-bpm {
+	font-weight: bold;
+    font-size: 145px;
+    margin: 0;
+}
+
+#constru-bois {
+	margin: 0;
+	margin-top: -45px;
+}
+
+#bpmlogo {
+		color: #b65300;
+    margin: 0 auto;
+    width: 40vw;
+        left: -50px;
+    position: relative;
+    text-align: center;
+    font-family: 'avenir';
+    font-size: 34px;
+    padding-top: 250px;
+    display: none;
+}
+
+.cube div {
+	outline:4px solid #b65300;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+}
+.back {
+	    width: 250px !important;
+	transform: translateZ(-100px) rotateY(180deg);
+}
+.right {
+    margin-left: 60px !important;
+    /*transform: rotateY(-270deg) translateX(119px) translateY(-44px) scale(1.1);*/
+	transform: rotateY(-180deg) translateX(86px) translateY(-117px) scale(1.27) translateZ(160px);
+    transform-origin: top right;
+    width: 141px !important;
+    transition: all .5s;
+}
+.left {
+	/*transform: rotateY(270deg) translateX(-95px) translateY(2px);*/
+	transform: rotateY(180deg) translateX(-49px) translateY(24px) translateZ(84px) scaleY(0.93);
+	transform-origin: center left;
+    width: 144px !important;
+    transition: all .5s;
+}
+
+.backroof {
+	 display : inline-block;
+ height : 0;
+ width : 0;
+ border-right : 100px solid transparent;
+ border-bottom : 51px solid #b65300;
+ border-left : 100px solid transparent;
+     transform: rotate(90deg);
+    margin-top: 74px;
+    margin-left: 80px;
+}
+
+.frontroof {
+	display: inline-block;
+    height: 0;
+    width: 0;
+    border-right: 100px solid transparent;
+    border-bottom: 51px solid #b65300;
+    border-left: 100px solid transparent;
+    transform: rotate(-90deg);
+    margin-top: 74px;
+    margin-left: -50vh;
+    display: none;
+    transition: all 1s;
+}
+
+
+.top {
+	transform: rotateX(-90deg) translateY(-100px);
+	transform-origin: top center;
+}
+.bottom {
+	transform: rotateX(90deg) translateY(100px);
+	transform-origin: bottom center;
+}
+.front {
+	display: none;
+	transform: translateZ(100px);
+}
+
+.hauteur-cotes {
+	display: none;
+}
+
+.menu-item {
+	overflow:hidden;
+	position: relative;
+	border-left: 2px;
+	background-color: black;
+}
+
+.menu-item:hover {
+	cursor: pointer;
+}
+
+
+.menu-link {
+    position: absolute;
+    z-index:2;
+	margin-top: 418px;
+	text-align: center;
+	font-family:"avenir";
+}
+
+nav {
+	transform-origin: bottom left;
+	position: fixed;
+        left: 0px;
+	-webkit-box-shadow: 0px 13px 33px -6px rgba(0,0,0,1);
+-moz-box-shadow: 0px 13px 33px -6px rgba(0,0,0,1);
+box-shadow: 0px 13px 33px -6px rgba(0,0,0,1);
+transition: all .5s;
+}
+
+.menu-link p {
+	margin: 0;
+	text-decoration: none;
+	color: #b65300;
+	transition: all .2s;
+}
+
+.menu-link.garantie p {
+	color: black;
+	font-weight: bold;
+}
+
+
+.hover-effect {
+	z-index: 1;
+    position: relative;
+    /* bottom: -449px; */
+    height: 3px;
+    top: 450px;
+    height: 600px;
+    width: 100%;
+    background-color: #b65300;
+    transition: all .2s;
+}
+
+.hover-effect.garantie {
+	top: 407px;
+}
+
+.closed {
+    top: -200px;
+    left: -235px;
+}
+
+#sidebar {
+	border-right: 3px solid #b65300;
+	position: fixed;
+	z-index: 3;
+	left:0px;
+	transition: all .5s;
+-webkit-box-shadow: 10px 0px 33px -6px rgba(0,0,0,1);
+-moz-box-shadow: 10px 0px 33px -6px rgba(0,0,0,1);
+box-shadow: 10px 0px 33px -6px rgba(0,0,0,1);
+    background-color: rgb(17,10,9);
+}
+
+#logo {
+    /* bottom: -13px; */
+    /* margin: 0 auto; */
+    text-align: left;
+    /* margin-left: 61px; */
+}
+
+#close-button {
+	position: fixed;
+	z-index: 4;
+	top: 15px;
+	right: 30px;
+	transform: rotate(45deg);
+	font-size: 60px;
+	font-weight: bold;
+	color: white;
+	transition: all .1s;
+	opacity: 0.5;
+	display: none;
+}
+
+
+#close-button:hover {
+	cursor: pointer;
+	transform: scale(1.1) rotate(45deg);
+	opacity: 1;
+}
+
+#infos {
+    position: relative;
+    /* bottom: 93px; */
+    font-family: 'avenir';
+    color: #b65300;
+    /* margin: 0 auto; */
+    text-align: center;
+    font-weight: bold;
+}
+
+#infos p {
+    margin: 9px;
+}
+
+#text-zone {
+    background-color: rgba(0,0,0,0.8);
+    width: 800px;
+    height: 299px;
+    position: fixed;
+    bottom: 70px;
+    right: -850px;
+    font-size: 19px;
+    font-family: 'avenir';
+    color:white;
+    transition: all .5s;
+-webkit-box-shadow: 0px 1px 47px -6px rgba(0,0,0,1);
+-moz-box-shadow: 0px 1px 47px -6px rgba(0,0,0,1);
+box-shadow: 0px 1px 47px -6px rgba(0,0,0,1);
+}
+#text-zone p {
+	padding: 28px;
+}
+
+#overlay-text {
+	background-color: #b65300;
+    width: 832px;
+    height: 60px;
+    position: relative;
+    bottom: -8px;
+    right: 32px;
+}
+
+#overlay-text p {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 0;
+    margin-top: 12px;
+    padding-left: 28px;
+}
+
+/** Mobile **/
+
+@media all and (max-width: 480px) {
+
+	#sidebar {
+		width: 100%;
+		height: 200px;
+	}
+
+	#logo {
+		position: absolute;
+	    width: 100px;
+	    right: 50px;
+	    top: 35px;
+	}
+
+	#infos {
+	    width: 200px;
+	    position: absolute;
+	    font-size: 11px;
+	    right: 0;
+	    top: 90px;
+	}
+
+	nav {
+		transform: rotate(-40deg);
+    	top: -255px;
+	}
+
+	li {
+		width: 78px;
+	}
+
+	.menu-item {
+		border: 2px solid #b65300;
+		height: 452px;
+	}
+
+	#text-zone {
+		display: none;
+	}
+
+	.menu-link {
+		width: 63px;
+	}
+
+	.menu-link p {
+		font-size: 12px;
+	}
+
+	#about-link {
+	    margin-top: 435px;
+	    text-align: right;
+	    margin-left: 5px;
+	}
+
+	#contact-link {
+	    margin-top: 435px;
+	    text-align: left;
+	    margin-left: 7px;
+	}
+
+	.slider img {
+		height:100vh !important;
+	}
+    
+}
+
+/** Other devices **/
+
+@media all and (min-width: 480px) {
+
+	#sidebar {
+		width: 503px;
+		height: 100vh;
+	}
+
+	#logo {
+    	position: relative;
+		width: 250px;
+    	margin-top: 60vh;
+    	margin-left: 113px;
+	}
+
+	#infos {
+	    width: 337px;
+	    font-size: 19px;
+	    margin-left: 69px;
+
+	}
+
+	nav {		
+		transform: rotate(-45deg);
+    	top: 35px;
+	}
+
+	li {
+		width: 180px;
+	}
+
+	.menu-item {
+		border: 9px solid #b65300;
+		height: 450px;
+	}
+
+	.menu-link {
+		width: 172px;
+	}
+
+	.menu-link p {
+		font-size: 20px;
+	}
+
+	#about-link {
+	    text-align: center;
+	    margin-left: 25px;
+	}
+
+	#contact-link {
+	    text-align: left;
+	    margin-left: 20px;
+	}
+
+	.slider img {
+		width: 100vw !important;
+		height:100vh !important;
+	}
+
+}
